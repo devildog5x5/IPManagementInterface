@@ -38,6 +38,42 @@ A comprehensive desktop application for managing and monitoring IP devices on yo
    python install.py
    ```
 
+### Building Standalone Executable
+
+To create a standalone executable that doesn't require Python to be installed:
+
+1. Install build dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Build the executable:
+   ```bash
+   python build_executable.py
+   ```
+
+3. The executable will be created in the `dist/` directory:
+   - **Windows**: `dist/IPDeviceManager.exe`
+   - **Linux/Mac**: `dist/IPDeviceManager`
+
+### Creating Installer Package
+
+After building the executable, create an installer package:
+
+1. Build the executable first (see above)
+
+2. Create the installer:
+   ```bash
+   python create_installer.py
+   ```
+
+3. The installer will be created:
+   - **Windows**: `dist/IPDeviceManager_Setup.exe` (if Inno Setup is installed) or `IPDeviceManager_Installer_windows.zip`
+   - **Linux**: `IPDeviceManager_Installer_linux.zip`
+   - **macOS**: `IPDeviceManager_Installer_macos.zip`
+
+**Note for Windows**: For a full installer with GUI, install [Inno Setup](https://jrsoftware.org/isinfo.php). The script will automatically detect it and create a proper installer. Otherwise, a simple ZIP package with install scripts will be created.
+
 ### Git Setup
 
 To initialize the Git repository and make the initial commit:
@@ -125,15 +161,21 @@ git commit -m "Initial commit: IP Device Management Interface"
 
 ```
 IPManagementInterface/
-├── main.py              # Main application
-├── requirements.txt     # Python dependencies
-├── install.py           # Installation script
-├── launch.bat           # Windows launcher (created by installer)
-├── launch.sh            # Unix launcher (created by installer)
-├── launch.ps1           # PowerShell launcher (created by installer)
-├── devices.json         # Device database (created at runtime)
-├── README.md            # This file
-└── .gitignore          # Git ignore rules
+├── main.py                  # Main application
+├── requirements.txt         # Python dependencies
+├── install.py               # Installation script (installs Python dependencies)
+├── build_executable.py      # Script to build standalone executable
+├── create_installer.py     # Script to create installer package
+├── setup_git.ps1           # Git setup script (Windows)
+├── setup_git.sh            # Git setup script (Linux/Mac)
+├── launch.bat              # Windows launcher (created by installer)
+├── launch.sh               # Unix launcher (created by installer)
+├── launch.ps1              # PowerShell launcher (created by installer)
+├── devices.json            # Device database (created at runtime)
+├── dist/                   # Build output directory (executables)
+├── build/                  # Build temporary files
+├── README.md               # This file
+└── .gitignore             # Git ignore rules
 ```
 
 ## Data Storage

@@ -85,3 +85,17 @@ launch.bat
 launch.sh
 launch.ps1
 
+# Build artifacts
+build/
+dist/
+*.spec
+installer.iss
+installer_package/
+*.zip
+*.exe
+*.dmg
+*.pkg
+*.deb
+*.rpm
+*.AppImage
+
