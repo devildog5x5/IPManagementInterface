@@ -13,7 +13,10 @@ namespace IPManagementInterface.ViewModels
         USMC,
         OliveDrab,
         Ocean,
-        Sunset
+        Sunset,
+        Midnight,
+        Forest,
+        Cyber
     }
 
     public class ThemeManager
@@ -61,7 +64,10 @@ namespace IPManagementInterface.ViewModels
                                source.Contains("Themes/USMCTheme.xaml") ||
                                source.Contains("Themes/OliveDrabTheme.xaml") ||
                                source.Contains("Themes/OceanTheme.xaml") ||
-                               source.Contains("Themes/SunsetTheme.xaml");
+                               source.Contains("Themes/SunsetTheme.xaml") ||
+                               source.Contains("Themes/MidnightTheme.xaml") ||
+                               source.Contains("Themes/ForestTheme.xaml") ||
+                               source.Contains("Themes/CyberTheme.xaml");
                     })
                     .ToList();
                 

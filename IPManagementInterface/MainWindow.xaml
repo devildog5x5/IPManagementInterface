@@ -21,6 +21,19 @@
         <converters:TagsToStringConverter x:Key="TagsToStringConverter"/>
     </Window.Resources>
     
+    <Window.InputBindings>
+        <!-- Keyboard Shortcuts -->
+        <KeyBinding Key="N" Modifiers="Ctrl" Command="{Binding AddDeviceCommand}" />
+        <KeyBinding Key="F" Modifiers="Ctrl" Command="{Binding FocusSearchCommand}" />
+        <KeyBinding Key="Delete" Command="{Binding RemoveDeviceCommand}" />
+        <KeyBinding Key="F5" Command="{Binding RefreshAllCommand}" />
+        <KeyBinding Key="E" Modifiers="Ctrl" Command="{Binding QuickExportCommand}" />
+        <KeyBinding Key="I" Modifiers="Ctrl" Command="{Binding QuickImportCommand}" />
+        <KeyBinding Key="D" Modifiers="Ctrl" Command="{Binding OpenDiscoveryCommand}" />
+        <KeyBinding Key="OemComma" Modifiers="Ctrl" Command="{Binding OpenSettingsCommand}" />
+        <KeyBinding Key="Escape" Command="{Binding ClearSearchCommand}" />
+    </Window.InputBindings>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -67,7 +80,8 @@
                                    FontSize="14" 
                                    Margin="0,0,8,0" 
                                    VerticalAlignment="Center"/>
-                        <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                        <TextBox x:Name="SearchTextBox"
+                                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
                                  Background="Transparent" 
                                  BorderThickness="0"
                                  FontSize="14"
@@ -101,7 +115,7 @@
                             Padding="15,8"
                             FontWeight="SemiBold"
                             Cursor="Hand"
-                            ToolTip="Open Settings">
+                            ToolTip="Open Settings (Ctrl+,)">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="⚙️" 
                                        FontSize="16" 
@@ -118,13 +132,14 @@
                             Background="{DynamicResource AccentBrush}"
                             Foreground="White"
                             Padding="15,8"
-                            ToolTip="Open Advanced Discovery Window"/>
+                            ToolTip="Open Advanced Discovery Window (Ctrl+D)"/>
                     <Button Content="➕ Add" 
                             Command="{Binding AddDeviceCommand}"
                             Margin="5,0"
                             Background="{DynamicResource AccentBrush}"
                             Foreground="White"
-                            Padding="15,8"/>
+                            Padding="15,8"
+                            ToolTip="Add New Device (Ctrl+N)"/>
                 </StackPanel>
 
                 <!-- Quick Actions Toolbar -->
@@ -287,8 +302,35 @@
                         </StackPanel>
                     </Border>
 
+                    <!-- Selection Controls -->
+                    <StackPanel Grid.Row="2" 
+                                Orientation="Horizontal" 
+                                HorizontalAlignment="Left"
+                                Margin="15,5,15,5">
+                        <Button Content="✓ Select All" 
+                                Command="{Binding SelectAllDevicesCommand}"
+                                Margin="3,0"
+                                Padding="8,4"
+                                ToolTip="Select All Devices (Ctrl+A)"/>
+                        <Button Content="☐ Deselect All" 
+                                Command="{Binding DeselectAllDevicesCommand}"
+                                Margin="3,0"
+                                Padding="8,4"
+                                ToolTip="Deselect All Devices"/>
+                        <Button Content="↔ Invert Selection" 
+                                Command="{Binding InvertSelectionCommand}"
+                                Margin="3,0"
+                                Padding="8,4"
+                                ToolTip="Invert Selection"/>
+                        <TextBlock Text="{Binding SelectedDevices.Count, StringFormat='{}Selected: {0}'}" 
+                                   VerticalAlignment="Center"
+                                   Margin="10,0,0,0"
+                                   Foreground="{DynamicResource TextSecondaryBrush}"
+                                   FontWeight="SemiBold"/>
+                    </StackPanel>
+
                     <!-- Tabbed Device Lists -->
-                    <TabControl Grid.Row="2" 
+                    <TabControl Grid.Row="3" 
                                 SelectedIndex="{Binding SelectedTabIndex}"
                                 BorderThickness="0">
                         <TabItem Header="All">
@@ -561,18 +603,14 @@
                     </StackPanel>
 
                     <!-- Bulk Actions Panel -->
-                    <Border Grid.Row="4" 
+                    <Border Grid.Row="5" 
                             Background="{DynamicResource AccentBrush}"
                             Padding="10"
                             Margin="15,10,15,15"
                             CornerRadius="4"
                             Visibility="{Binding SelectedDevices.Count, Converter={StaticResource CountToVisibilityConverter}}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                            <TextBlock>
-                                <TextBlock.Text>
-                                    <Binding Path="SelectedDevices.Count" StringFormat="{}Selected: {0}"/>
-                                </TextBlock.Text>
-                            </TextBlock> 
+                            <TextBlock Text="{Binding SelectedDevices.Count, StringFormat='{}Selected: {0}'}"
                                        Foreground="White"
                                        VerticalAlignment="Center"
                                        Margin="0,0,10,0"

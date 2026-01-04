@@ -1,0 +1,27 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Themes/Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!-- Midnight Theme - Deep Navy and Indigo -->
+    <Color x:Key="Midnight_Deep">#0A1929</Color>
+    <Color x:Key="Midnight_Dark">#132F4C</Color>
+    <Color x:Key="Midnight_Medium">#1E4A6B</Color>
+    <Color x:Key="Midnight_Accent">#4A90E2</Color>
+    <Color x:Key="Midnight_Light">#6BB6FF</Color>
+    <Color x:Key="Midnight_Text">#E8F4F8</Color>
+    <Color x:Key="Midnight_TextSecondary">#B8D4E8</Color>
+    <Color x:Key="Midnight_Border">#2D5A7A</Color>
+    
+    <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Midnight_Deep}"/>
+    <SolidColorBrush x:Key="SurfaceBrush" Color="{StaticResource Midnight_Dark}"/>
+    <SolidColorBrush x:Key="TextPrimaryBrush" Color="{StaticResource Midnight_Text}"/>
+    <SolidColorBrush x:Key="TextSecondaryBrush" Color="{StaticResource Midnight_TextSecondary}"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource Midnight_Border}"/>
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Midnight_Medium}"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource Midnight_Accent}"/>
+    
+</ResourceDictionary>
+

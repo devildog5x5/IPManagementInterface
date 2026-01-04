@@ -41,6 +41,9 @@ namespace IPManagementInterface.Views
             OliveDrabTheme.IsChecked = themeName == "OliveDrab";
             OceanTheme.IsChecked = themeName == "Ocean";
             SunsetTheme.IsChecked = themeName == "Sunset";
+            MidnightTheme.IsChecked = themeName == "Midnight";
+            ForestTheme.IsChecked = themeName == "Forest";
+            CyberTheme.IsChecked = themeName == "Cyber";
         }
 
         private void ThemeRadioButton_Checked(object sender, RoutedEventArgs e)

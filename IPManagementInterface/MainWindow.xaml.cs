@@ -23,6 +23,11 @@ namespace IPManagementInterface
 
             // Setup multi-selection for ListBoxes
             SetupMultiSelection();
+
+            // Subscribe to ViewModel events for UI interactions
+            _viewModel.FocusSearchRequested += () => SearchTextBox?.Focus();
+            _viewModel.OpenDiscoveryRequested += () => DiscoverButton_Click(this, new RoutedEventArgs());
+            _viewModel.OpenSettingsRequested += () => SettingsButton_Click(this, new RoutedEventArgs());
         }
 
         private void SetupMultiSelection()

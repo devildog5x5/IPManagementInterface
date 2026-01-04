@@ -553,5 +553,101 @@ namespace IPManagementInterface.ViewModels
                 SelectedDevice = device;
             }
         }
+
+        [RelayCommand]
+        private void QuickExport()
+        {
+            // Default to JSON export
+            ExportDevices("json");
+        }
+
+        [RelayCommand]
+        private void QuickImport()
+        {
+            // Default to JSON import
+            ImportDevices("json");
+        }
+
+        [RelayCommand]
+        private void ClearSearch()
+        {
+            SearchText = string.Empty;
+        }
+
+        // Commands that need UI interaction - will be handled in code-behind
+        [RelayCommand]
+        private void FocusSearch()
+        {
+            // This will be handled in code-behind to focus the TextBox
+            FocusSearchRequested?.Invoke();
+        }
+
+        [RelayCommand]
+        private void OpenDiscovery()
+        {
+            OpenDiscoveryRequested?.Invoke();
+        }
+
+        [RelayCommand]
+        private void OpenSettings()
+        {
+            OpenSettingsRequested?.Invoke();
+        }
+
+        // Events for UI interactions
+        public event Action? FocusSearchRequested;
+        public event Action? OpenDiscoveryRequested;
+        public event Action? OpenSettingsRequested;
+
+        [RelayCommand]
+        private void SelectAllDevices()
+        {
+            var currentDevices = SelectedTabIndex switch
+            {
+                0 => AllDevices,
+                1 => CameraDevices,
+                2 => NetworkDevices,
+                3 => ServerDevices,
+                4 => OtherDevices,
+                _ => AllDevices
+            };
+            
+            SelectedDevices.Clear();
+            foreach (var device in currentDevices)
+            {
+                if (!SelectedDevices.Contains(device))
+                    SelectedDevices.Add(device);
+            }
+        }
+
+        [RelayCommand]
+        private void DeselectAllDevices()
+        {
+            SelectedDevices.Clear();
+        }
+
+        [RelayCommand]
+        private void InvertSelection()
+        {
+            var currentDevices = SelectedTabIndex switch
+            {
+                0 => AllDevices,
+                1 => CameraDevices,
+                2 => NetworkDevices,
+                3 => ServerDevices,
+                4 => OtherDevices,
+                _ => AllDevices
+            };
+
+            var devicesList = currentDevices.ToList();
+            var toAdd = devicesList.Where(d => !SelectedDevices.Contains(d)).ToList();
+            var toRemove = SelectedDevices.Where(d => devicesList.Contains(d)).ToList();
+            
+            foreach (var device in toRemove)
+                SelectedDevices.Remove(device);
+            
+            foreach (var device in toAdd)
+                SelectedDevices.Add(device);
+        }
     }
 }
