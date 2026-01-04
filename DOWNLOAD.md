@@ -2,7 +2,7 @@
 
 Download ready-to-use executables and installers for the IP Management Dashboard application.
 
-> **⚠️ Note:** Download links will be available after creating a GitHub Release. See [Creating a Release](#-creating-a-release) section below.
+> **Note:** This application now includes **9 beautiful themes**, keyboard shortcuts, bulk operations, and enhanced usability features.
 
 ## 🎯 Recommended: MSI Installer
 
