@@ -2,13 +2,13 @@
 
 Download ready-to-use executables and installers for the IP Management Dashboard application.
 
-> **Note:** This application now includes **9 beautiful themes**, keyboard shortcuts, bulk operations, and enhanced usability features.
+> **⚠️ Note:** Download links will be available after creating a GitHub Release. See [Creating a Release](#-creating-a-release) section below.
 
 ## 🎯 Recommended: MSI Installer
 
 **[Download MSI Installer](https://github.com/devildog5x5/IPManagementInterface/releases/latest/download/IPManagementInterface-Setup.msi)**
 
-**Size:** Varies | **Version:** Latest
+**Size:** ~241 MB | **Version:** Latest
 
 The MSI installer is the **recommended option** for Windows installation:
 
@@ -35,7 +35,7 @@ The MSI installer is the **recommended option** for Windows installation:
 
 **[Download Self-Contained Executable](https://github.com/devildog5x5/IPManagementInterface/releases/latest/download/IPManagementInterface.exe)**
 
-**Size:** ~73 MB | **Version:** Latest
+**Size:** ~173 MB | **Version:** Latest
 
 A self-contained executable that includes everything needed to run:
 
@@ -56,6 +56,36 @@ A self-contained executable that includes everything needed to run:
 
 ---
 
+## 📦 Creating a Release
+
+To make the download links work, you need to create a GitHub Release and upload the build artifacts:
+
+### Option 1: Using GitHub Website
+1. Go to https://github.com/devildog5x5/IPManagementInterface/releases/new
+2. Create a new release:
+   - **Tag:** `v1.0.0` (or your version)
+   - **Title:** `Release v1.0.0` (or your title)
+   - **Description:** Add release notes
+3. Upload the following files:
+   - `IPManagementInterface\bin\Release\net8.0-windows\win-x64\publish\IPManagementInterface.exe`
+   - `InstallerOutput\IPManagementInterface-Setup.msi`
+4. Click "Publish release"
+
+### Option 2: Using GitHub CLI (if installed)
+```powershell
+# Create release and upload files
+gh release create v1.0.0 `
+  "IPManagementInterface\bin\Release\net8.0-windows\win-x64\publish\IPManagementInterface.exe" `
+  "InstallerOutput\IPManagementInterface-Setup.msi" `
+  --title "Release v1.0.0" `
+  --notes "Initial release with 9 themes, keyboard shortcuts, and enhanced features"
+```
+
+### Option 3: Build from Source
+If you prefer to build from source, see the [Building from Source](#-building-from-source) section below.
+
+---
+
 ## ✨ What's New
 
 ### Version Features:
@@ -71,8 +101,8 @@ A self-contained executable that includes everything needed to run:
 
 | Option | Type | Size | .NET Runtime | Best For |
 |--------|------|------|--------------|----------|
-| **MSI Installer** | Installer | Medium | Required* | Production deployment |
-| **Self-Contained Executable** | Standalone | ~73 MB | Included | Older Windows, portable use |
+| **MSI Installer** | Installer | ~241 MB | Required* | Production deployment |
+| **Self-Contained Executable** | Standalone | ~173 MB | Included | Older Windows, portable use |
 
 \* Can use self-contained build which includes runtime
 
@@ -122,6 +152,7 @@ All versions include:
 ## 🔗 Additional Resources
 
 - **Repository:** [https://github.com/devildog5x5/IPManagementInterface](https://github.com/devildog5x5/IPManagementInterface)
+- **Releases:** [https://github.com/devildog5x5/IPManagementInterface/releases](https://github.com/devildog5x5/IPManagementInterface/releases)
 - **Documentation:** See [README.md](README.md) for detailed usage instructions
 - **iOS Setup:** See [README_iOS_SETUP.md](README_iOS_SETUP.md) for iOS build instructions
 - **Android Setup:** See [README_ANDROID.md](README_ANDROID.md) for Android build instructions
@@ -133,13 +164,13 @@ All versions include:
 ## 📝 Installation Instructions
 
 ### MSI Installer
-1. Download `IPManagementInterface-Setup.msi`
+1. Download `IPManagementInterface-Setup.msi` from the [Releases page](https://github.com/devildog5x5/IPManagementInterface/releases)
 2. Double-click to run the installer (admin rights may be required)
 3. Follow the installation wizard
 4. Launch from desktop shortcut or Start Menu
 
 ### Self-Contained Executable
-1. Download `IPManagementInterface.exe`
+1. Download `IPManagementInterface.exe` from the [Releases page](https://github.com/devildog5x5/IPManagementInterface/releases)
 2. Double-click to run
 3. No installation required!
 
@@ -159,6 +190,9 @@ A: Yes! The Self-Contained Executable works on Windows 7 SP1 and later.
 **Q: Can I run it from a USB drive?**  
 A: Yes! Both the Self-Contained Executable and MSI installer support portable use.
 
+**Q: The download links give 404 errors**  
+A: You need to create a GitHub Release first. See the [Creating a Release](#-creating-a-release) section above.
+
 ---
 
 ## 🔧 Building from Source
@@ -176,6 +210,10 @@ dotnet build IPManagementInterface.sln --configuration Release
 # MSI Installer
 .\BuildWiXInstaller.ps1
 ```
+
+After building, the files will be in:
+- Executable: `IPManagementInterface\bin\Release\net8.0-windows\win-x64\publish\IPManagementInterface.exe`
+- Installer: `InstallerOutput\IPManagementInterface-Setup.msi`
 
 ---
 
