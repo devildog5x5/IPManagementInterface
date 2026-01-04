@@ -2,13 +2,13 @@
 
 Download ready-to-use executables and installers for the IP Management Dashboard application.
 
-> **Note:** GitHub releases are created automatically. If download links don't work, the release may still be in progress. Check the [releases page](https://github.com/devildog5x5/remote-location/releases) for the latest version.
+> **Note:** This application now includes **9 beautiful themes**, keyboard shortcuts, bulk operations, and enhanced usability features.
 
 ## 🎯 Recommended: MSI Installer
 
-**[Download MSI Installer](https://github.com/devildog5x5/remote-location/releases/latest/download/IPManagementInterface-Setup.msi)**
+**[Download MSI Installer](https://github.com/devildog5x5/IPManagementInterface/releases/latest/download/IPManagementInterface-Setup.msi)**
 
-**Size:** Varies | **Version:** 1.0.0
+**Size:** Varies | **Version:** Latest
 
 The MSI installer is the **recommended option** for Windows installation:
 
@@ -19,7 +19,7 @@ The MSI installer is the **recommended option** for Windows installation:
 - ✅ **System Integration** - Properly registered Windows application
 
 **Requirements:**
-- Windows 7 SP1 or later (Windows 7, 8.1, 10, 11)
+- Windows 10 or later (Windows 10, 11)
 - .NET 8.0 Runtime (included in self-contained builds or install separately)
 
 **Installation Notes:**
@@ -33,9 +33,9 @@ The MSI installer is the **recommended option** for Windows installation:
 
 ### Self-Contained Build (Recommended)
 
-**[Download Self-Contained Executable](https://github.com/devildog5x5/remote-location/releases/latest/download/IPManagementInterface.exe)**
+**[Download Self-Contained Executable](https://github.com/devildog5x5/IPManagementInterface/releases/latest/download/IPManagementInterface.exe)**
 
-**Size:** ~73 MB | **Version:** 1.0.0
+**Size:** ~73 MB | **Version:** Latest
 
 A self-contained executable that includes everything needed to run:
 
@@ -54,32 +54,16 @@ A self-contained executable that includes everything needed to run:
 - No installation, no admin rights required
 - Perfect for quick deployment or testing
 
-**Note:** This is the self-contained build created by `PublishForDistribution.ps1`
-
 ---
 
-## 📦 Portable Package
+## ✨ What's New
 
-**[Download Portable Package](https://github.com/devildog5x5/remote-location/releases/latest/download/IPManagementInterface-Installer-v1.0.0.zip)**
-
-**Size:** Varies | **Version:** 1.0.0
-
-A portable package containing the application and setup scripts:
-
-- ✅ **Complete Package** - Includes executable and setup scripts
-- ✅ **Portable Deployment** - Extract and run from any location
-- ✅ **Setup Scripts Included** - Batch files for easy setup
-- ✅ **Uninstall Script** - Included uninstall batch file
-
-**Contents:**
-- `IPManagementInterface.exe` - Main application executable
-- `README.txt` - Usage instructions
-- `Setup.bat` - Setup script (optional)
-- `Uninstall.bat` - Uninstall script
-
-**Requirements:**
-- Windows 7 SP1 or later
-- .NET 8.0 Runtime (unless using self-contained build)
+### Version Features:
+- **9 Beautiful Themes**: Choose from Light, Dark, USMC, Olive Drab, Ocean, Sunset, Midnight, Forest, and Cyber themes
+- **Keyboard Shortcuts**: Fast access with Ctrl+N (Add), Ctrl+F (Search), F5 (Refresh), Ctrl+A (Select All), and more
+- **Bulk Operations**: Select multiple devices with Ctrl+Click, use Select All/Invert/Deselect buttons
+- **Enhanced UI**: Improved tooltips, better visual feedback, scrollable settings
+- **Device Management**: Full device discovery, monitoring, alerting, and management features
 
 ---
 
@@ -89,7 +73,6 @@ A portable package containing the application and setup scripts:
 |--------|------|------|--------------|----------|
 | **MSI Installer** | Installer | Medium | Required* | Production deployment |
 | **Self-Contained Executable** | Standalone | ~73 MB | Included | Older Windows, portable use |
-| **Portable Package** | ZIP Archive | Medium | Required* | Manual deployment |
 
 \* Can use self-contained build which includes runtime
 
@@ -109,12 +92,6 @@ A portable package containing the application and setup scripts:
 - Works on Windows 7 SP1+
 - Perfect for USB drives or quick deployment
 
-### Option 3: Manual Deployment
-**→ Download the [Portable Package](#-portable-package)**
-- Extract and customize
-- Includes setup scripts
-- Full control over deployment
-
 ---
 
 ## 📦 What's Included
@@ -125,7 +102,9 @@ All versions include:
 - ✅ Multi-protocol support (HTTP/HTTPS, custom ports)
 - ✅ Smart device discovery with network scanning
 - ✅ Real-time status monitoring
-- ✅ 6 beautiful themes (Light, Dark, USMC, Olive Drab, Ocean, Sunset)
+- ✅ 9 beautiful themes (Light, Dark, USMC, Olive Drab, Ocean, Sunset, Midnight, Forest, Cyber)
+- ✅ Keyboard shortcuts for fast workflow
+- ✅ Bulk operations (select, refresh, delete multiple devices)
 - ✅ Device statistics and reporting
 - ✅ Persistent device storage
 - ✅ Modern, colorful UI
@@ -142,12 +121,12 @@ All versions include:
 
 ## 🔗 Additional Resources
 
-- **Repository:** [https://github.com/devildog5x5/remote-location](https://github.com/devildog5x5/remote-location)
+- **Repository:** [https://github.com/devildog5x5/IPManagementInterface](https://github.com/devildog5x5/IPManagementInterface)
 - **Documentation:** See [README.md](README.md) for detailed usage instructions
 - **iOS Setup:** See [README_iOS_SETUP.md](README_iOS_SETUP.md) for iOS build instructions
 - **Android Setup:** See [README_ANDROID.md](README_ANDROID.md) for Android build instructions
 - **Deployment Guide:** See [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) for deployment information
-- **Issues:** Report bugs or request features on GitHub Issues (check repository URL)
+- **Issues:** Report bugs or request features on GitHub Issues
 
 ---
 
@@ -164,12 +143,6 @@ All versions include:
 2. Double-click to run
 3. No installation required!
 
-### Portable Package
-1. Download `IPManagementInterface-Installer-v1.0.0.zip`
-2. Extract to desired location
-3. Run `IPManagementInterface.exe` directly
-4. Optional: Run `Setup.bat` for additional setup
-
 ---
 
 ## ❓ Troubleshooting
@@ -184,7 +157,7 @@ A: The Self-Contained Executable includes .NET and doesn't require separate inst
 A: Yes! The Self-Contained Executable works on Windows 7 SP1 and later.
 
 **Q: Can I run it from a USB drive?**  
-A: Yes! Both the Self-Contained Executable and Portable Package are fully portable.
+A: Yes! Both the Self-Contained Executable and MSI installer support portable use.
 
 ---
 
@@ -206,5 +179,4 @@ dotnet build IPManagementInterface.sln --configuration Release
 
 ---
 
-**Last Updated:** Version 1.0.0
-
+**Last Updated:** Latest Release
